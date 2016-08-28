@@ -10,10 +10,9 @@ export default class UsersWidget extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
-    requestUsers: PropTypes.func.isRequired,
+    fetchUsers: PropTypes.func.isRequired,
     submitUser: PropTypes.func.isRequired,
     deleteUser: PropTypes.func.isRequired,
-    users: PropTypes.object.isRequired,
     current_user: PropTypes.object.isRequired,
   };
 
@@ -78,6 +77,7 @@ export default class UsersWidget extends React.Component {
   }
 
   renderUsers(users) {
+    console.log(users);
     if (typeof(users.admin) != 'undefined' && !users.admin) {
       return (
               <div className="list-group col-xs-12" key={users.id}>
@@ -106,7 +106,6 @@ export default class UsersWidget extends React.Component {
   }
 
   render() {
-
     return (
       <div className="container-fluid">
         <div className="col-lg-12">

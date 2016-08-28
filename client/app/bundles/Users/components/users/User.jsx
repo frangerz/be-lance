@@ -4,7 +4,6 @@ import _ from 'lodash';
 // Simple example of a React "dumb" component
  export default class User extends React.Component {
   static propTypes = {
-    deleteUser: PropTypes.func.isRequired,
   };
 
   constructor(props, context) {

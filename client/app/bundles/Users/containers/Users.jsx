@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import UsersWidget from '../components/UsersWidget';
+import UsersWidget from '../components/users/UsersWidget';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
@@ -15,12 +15,11 @@ function select(state) {
 const Users = (props) => {
   const { dispatch, $$usersStore } = props;
   const actions = bindActionCreators(usersActionCreators, dispatch);
-  const { requestUsers, currentUser, submitUser, deleteUser } = actions;
+  const { fetchUsers, currentUser, submitUser, deleteUser } = actions;
   const users = $$usersStore.get('users');
   const current_user = $$usersStore.get('current_user');
-  console.log(current_user);
   return (
-    <UsersWidget {...{requestUsers, submitUser, deleteUser, users, current_user }} />
+    <UsersWidget {...{fetchUsers, submitUser, deleteUser, users, current_user }} />
   );
 };
 

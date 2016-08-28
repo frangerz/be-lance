@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   has_many :appointments
-  has_many :builders
   before_save :encrypt_password
 
   has_attached_file :avatar, styles: { small: "64x64", med: "100x100", large: "200x200" }

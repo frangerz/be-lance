@@ -7,8 +7,6 @@ import _ from 'lodash';
 // Simple example of a React "dumb" component
  export default class UserDetails extends React.Component {
   static propTypes = {
-    submitUser: PropTypes.func.isRequired,
-
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions"
   };
@@ -17,7 +15,6 @@ import _ from 'lodash';
     super(props, context);
 
     this.state = {
-      id: props.current_user.id || '',
       email: props.current_user.email || '',
       firstname: props.current_user.firstname ||  '',
       surname: props.current_user.surname ||  '',

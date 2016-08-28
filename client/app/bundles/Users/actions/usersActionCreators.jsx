@@ -1,7 +1,12 @@
 import fetch from 'isomorphic-fetch'
 import actionTypes from '../constants/usersConstants';
 
-
+export function currentUser(current_user) {
+  return {
+    type: actionTypes.CURRENT_USER,
+    current_user,
+  };
+}
 
 export function requestUsers(users) {
   return {
@@ -10,13 +15,31 @@ export function requestUsers(users) {
   };
 }
 
-export function currentUser(current_user) {
-  debugger;
-  
+export function receiveUsers(users, json) {
+  console.log(json.data.children);
+
   return {
-    type: actionTypes.CURRENT_USER,
-    current_user,
-  };
+    type: RECEIVE_USERS,
+    users,
+    users: json.data.children.map(child => child.data),
+  }
+}
+
+export function fetchUsers(users) {
+  return function(dispatch){
+    dispatch(requestUsers(users))
+    return fetch(`/users`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(response => response.json())
+      .then(json => dispatch(receiveUsers(users.users, json)))
+      .catch(err => {
+      });
+      return null;
+  }
 }
 
 export function submitUserOptimistic(user) {
@@ -38,10 +61,8 @@ export function submitUser(user) {
       body: JSON.stringify({
         user,
       })
-    }).then(response => {
-
-    }).catch(err => {
-
+    }).then(response => response.json())
+      .catch(err => {
     });
     return null;
   }
@@ -53,21 +74,11 @@ export function deleteUser(user) {
     fetch('/users/'+user.id+'.json', {
       method: 'DELETE',
     }).then(response => {
-
     }).catch(err => {
-
     });
     return null;
   }
 }
-
-export function submitUserFailure(error) {
-  return {
-    type: actionTypes.SUBMIT_USER_FAILURE,
-    user,
-  };
-}
-
 
 export function deleteUserOptimistic(user) {
   return {

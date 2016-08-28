@@ -9,7 +9,7 @@ import loggerMiddleware from 'lib/middlewares/loggerMiddleware';
 import reducers from '../reducers';
 import { initialStates } from '../reducers';
 
-export default props => {  
+export default props => {
   const { users, current_user }  = props;
   const { $$usersState } = initialStates;
   // Redux expects to initialize the store using an Object, not an Immutable.Map
@@ -25,6 +25,5 @@ export default props => {
   );
   const storeCreator = composedStore(createStore);
   const store = storeCreator(reducer, initialState);
-
   return store;
 };
