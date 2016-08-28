@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @invoice.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @invoice.description %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @invoice.total_cost %>
+</p>
+
+<p>
+  <strong>Payment completed at:</strong>
+  <%= @invoice.payment_completed_at %>
+</p>
+
+<p>
+  <strong>Last payment:</strong>
+  <%= @invoice.last_payment %>
+</p>
+
+<p>
+  <strong>Next payment:</strong>
+  <%= @invoice.next_payment %>
+</p>
+
+<p>
+  <strong>Recovered:</strong>
+  <%= @invoice.recovered %>
+</p>
+
+<p>
+  <strong>Owed:</strong>
+  <%= @invoice.owed %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

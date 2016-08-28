@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  total_cost: 1
+  payment_completed_at: 2016-08-28 10:24:21
+  last_payment: 2016-08-28 10:24:21
+  next_payment: 2016-08-28 10:24:21
+  recovered: 1
+  owed: 1
+
+two:
+  title: MyString
+  description: MyText
+  total_cost: 1
+  payment_completed_at: 2016-08-28 10:24:21
+  last_payment: 2016-08-28 10:24:21
+  next_payment: 2016-08-28 10:24:21
+  recovered: 1
+  owed: 1

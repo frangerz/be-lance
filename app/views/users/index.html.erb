@@ -1,0 +1,53 @@
+<% if current_user.admin %>
+  <h1 class="alert alert-info this-works">
+    <a href="#menu-toggle" style="font-size:0.5em; display:none;" id="menu-toggled" class="btn btn-default glyphicon glyphicon-th-large menu-toggle"></a>
+    <%=current_user.firstname %> from Be-Lancer
+  </h1>
+<% else %>
+  <h1 class="alert alert-info this-works">
+    <a href="#menu-toggle" style="font-size:0.5em; display:none;" id="menu-toggled" class="btn btn-default glyphicon glyphicon-th-large menu-toggle"></a>
+    <%=current_user.firstname %>'s Details'
+  </h1>
+<% end %>
+<%= react_component("UsersApp",
+                     props: {users: @users, current_user: current_user},
+                     prerender: false) %>
+<!-- <p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Surname</th>
+      <th>Dob</th>
+      <th>Uuid</th>
+      <th>Scope</th>
+      <th>Admin</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.firstname %></td>
+        <td><%= user.surname %></td>
+        <td><%= user.dob %></td>
+        <td><%= user.uuid %></td>
+        <td><%= user.scope %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.status %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %> -->

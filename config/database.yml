@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: create_development
+  pool: 5
+  username: o-train
+  password: allforone
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: create_test
+  pool: 5
+  username: o-train
+  password: allforone

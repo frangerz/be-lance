@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  mobile: false
+  title: MyString
+  description: MyText
+  experience: MyText
+  materials: MyString
+  speed: 1
+  cost_quality: 1
+
+two:
+  location: MyString
+  mobile: false
+  title: MyString
+  description: MyText
+  experience: MyText
+  materials: MyString
+  speed: 1
+  cost_quality: 1

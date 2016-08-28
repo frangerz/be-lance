@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CreateApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" href="#menu-toggle" class="menu-toggle" style="font: bold 2rem Georgia, serif;">
+                      <h2>
+                      <i class="glyphicon glyphicon-check"> </i>
+                          Be-Lancer
+                      </h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="/clients">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/jobs"><%=Job.model_name.name%> Search</a>
+                </li>
+                <li>
+                    <a href="/appointments"><%=Appointment.model_name.name.pluralize %></a>
+                </li>
+                <li>
+                    <a href="/services"><%=Service.model_name.name.pluralize %></a>
+                </li>
+                <li>
+                    <a href="/jobs"><%=Invoice.model_name.name.pluralize %></a>
+                </li>
+                <li>
+                    <a href="/reviews"><%=Review.model_name.name.pluralize %></a>
+                </li>
+                <li>
+                    <a href="/users">Settings</a>
+                </li>
+                <li>
+                  <% if current_user %>
+                    <%= link_to "Log out", log_out_path %>
+                  <% end %>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                      <%= yield %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  surname: MyString
+  joint: false
+  dob: 2016-07-20
+  address: MyString
+  phone: MyString
+
+two:
+  firstname: MyString
+  surname: MyString
+  joint: false
+  dob: 2016-07-20
+  address: MyString
+  phone: MyString

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quote: 1
+  alert_at: 2016-08-28 10:19:17
+  duration: 1
+  cost_per_hour: 1
+
+two:
+  quote: 1
+  alert_at: 2016-08-28 10:19:17
+  duration: 1
+  cost_per_hour: 1

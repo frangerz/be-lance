@@ -1,0 +1,29 @@
+<%= form_for(@charge_rate) do |f| %>
+  <% if @charge_rate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@charge_rate.errors.count, "error") %> prohibited this charge_rate from being saved:</h2>
+
+      <ul>
+      <% @charge_rate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.number_field :period %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %><br>
+    <%= f.number_field :cost %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

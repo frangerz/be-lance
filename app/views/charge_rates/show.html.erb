@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @charge_rate.description %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @charge_rate.period %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @charge_rate.cost %>
+</p>
+
+<%= link_to 'Edit', edit_charge_rate_path(@charge_rate) %> |
+<%= link_to 'Back', charge_rates_path %>
