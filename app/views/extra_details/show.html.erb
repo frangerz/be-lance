@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @extra_detail.type %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @extra_detail.service %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @extra_detail.description %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @extra_detail.mobile %>
+</p>
+
+<p>
+  <strong>Home phone:</strong>
+  <%= @extra_detail.home_phone %>
+</p>
+
+<p>
+  <strong>Alternate email:</strong>
+  <%= @extra_detail.alternate_email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @extra_detail.address %>
+</p>
+
+<%= link_to 'Edit', edit_extra_detail_path(@extra_detail) %> |
+<%= link_to 'Back', extra_details_path %>

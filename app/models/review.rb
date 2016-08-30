@@ -1,4 +1,4 @@
 class Review < ActiveRecord::Base
   belongs_to :job
-  has_one :users
+  has_one :user
 end

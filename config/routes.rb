@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :extra_details
   resources :stockers
   resources :materials
   resources :company_details

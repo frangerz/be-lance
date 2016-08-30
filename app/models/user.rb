@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
   has_many :services
   has_many :invoices
   has_many :reviews
-  has_many :details
+  has_one :detail
   before_save :encrypt_password
 
-  has_attached_file :avatar, styles: { small: "64x64", med: "100x100", large: "200x200" }
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   validates :password,
     :presence => true,
@@ -28,7 +29,6 @@ class User < ActiveRecord::Base
     :on => :create,
     :unless => :valid_email
   #avatar attachment
-  validates_attachment :avatar, :content_type => { :content_type => "image/jpg" }
 
   def secure_password
     if (password =~ /[a-z]/).blank? || (password =~ /[A-Z]/).blank? #lower letter test || upper letter test

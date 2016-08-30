@@ -1,3 +1,3 @@
 class CompanyDetail < ActiveRecord::Base
-  belongs_to :details
+  belongs_to :detail
 end

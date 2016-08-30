@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Extra Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Service</th>
+      <th>Description</th>
+      <th>Mobile</th>
+      <th>Home phone</th>
+      <th>Alternate email</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @extra_details.each do |extra_detail| %>
+      <tr>
+        <td><%= extra_detail.type %></td>
+        <td><%= extra_detail.service %></td>
+        <td><%= extra_detail.description %></td>
+        <td><%= extra_detail.mobile %></td>
+        <td><%= extra_detail.home_phone %></td>
+        <td><%= extra_detail.alternate_email %></td>
+        <td><%= extra_detail.address %></td>
+        <td><%= link_to 'Show', extra_detail %></td>
+        <td><%= link_to 'Edit', edit_extra_detail_path(extra_detail) %></td>
+        <td><%= link_to 'Destroy', extra_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Extra detail', new_extra_detail_path %>
