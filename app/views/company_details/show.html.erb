@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @company_detail.type %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @company_detail.company_name %>
+</p>
+
+<p>
+  <strong>Abn:</strong>
+  <%= @company_detail.abn %>
+</p>
+
+<p>
+  <strong>Acn:</strong>
+  <%= @company_detail.acn %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @company_detail.description %>
+</p>
+
+<%= link_to 'Edit', edit_company_detail_path(@company_detail) %> |
+<%= link_to 'Back', company_details_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stockers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Company name</th>
+      <th>Abn</th>
+      <th>Acn</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stockers.each do |stocker| %>
+      <tr>
+        <td><%= stocker.type %></td>
+        <td><%= stocker.company_name %></td>
+        <td><%= stocker.abn %></td>
+        <td><%= stocker.acn %></td>
+        <td><%= stocker.description %></td>
+        <td><%= link_to 'Show', stocker %></td>
+        <td><%= link_to 'Edit', edit_stocker_path(stocker) %></td>
+        <td><%= link_to 'Destroy', stocker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stocker', new_stocker_path %>

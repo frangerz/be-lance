@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  company_name: MyString
+  abn: MyString
+  acn: MyString
+  description: MyText
+
+two:
+  type: 
+  company_name: MyString
+  abn: MyString
+  acn: MyString
+  description: MyText

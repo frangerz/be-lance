@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :stockers
+  resources :materials
+  resources :company_details
+  resources :bank_details
+  resources :details
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
 

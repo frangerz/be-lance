@@ -1,0 +1,29 @@
+<%= form_for(@bank_detail) do |f| %>
+  <% if @bank_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bank_detail.errors.count, "error") %> prohibited this bank_detail from being saved:</h2>
+
+      <ul>
+      <% @bank_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :service %><br>
+    <%= f.text_field :service %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

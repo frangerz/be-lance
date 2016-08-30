@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @stocker.type %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @stocker.company_name %>
+</p>
+
+<p>
+  <strong>Abn:</strong>
+  <%= @stocker.abn %>
+</p>
+
+<p>
+  <strong>Acn:</strong>
+  <%= @stocker.acn %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stocker.description %>
+</p>
+
+<%= link_to 'Edit', edit_stocker_path(@stocker) %> |
+<%= link_to 'Back', stockers_path %>

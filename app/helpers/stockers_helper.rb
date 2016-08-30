@@ -1,0 +1,2 @@
+module StockersHelper
+end

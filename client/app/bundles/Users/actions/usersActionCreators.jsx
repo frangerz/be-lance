@@ -34,11 +34,12 @@ export function fetchUsers(users) {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-    }).then(response => response.json())
-      .then(json => dispatch(receiveUsers(users.users, json)))
-      .catch(err => {
-      });
-      return null;
+    })
+    .then(response => response.json())
+    .then(json => dispatch(receiveUsers(users.users, json)))
+    .catch(err => {
+    });
+    return null;
   }
 }
 

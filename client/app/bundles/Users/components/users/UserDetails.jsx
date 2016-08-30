@@ -15,6 +15,7 @@ import _ from 'lodash';
     super(props, context);
 
     this.state = {
+      username: props.current_user.username || '',
       email: props.current_user.email || '',
       firstname: props.current_user.firstname ||  '',
       surname: props.current_user.surname ||  '',
@@ -83,66 +84,57 @@ import _ from 'lodash';
     }
 
     return (
-      <div>
-      <div>
-        <h1>{title}</h1>
-      </div>
-      <form>
-        <div className="form group row">
-          <div id="avatar_user" className="well text-center">
-            <i className="glyphicon glyphicon-user" style={{fontSize: '10rem'}}></i>
-            <p>Drop Files Here to Upload or</p>
-            <div id="dropzone_avatar_user" className="btn btn-primary">
-              <span>Choose files</span>
+
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h4 className="modal-title" id="exampleModalLabel">{title}</h4>
+          </div>
+          <div className="modal-body">
+          <form>
+            <div className="form-group ">
+              <label htmlFor="user_username" className="form-control-label">Username</label>
+              <input type="text" onChange={this.onChange} className="form-control" id="username" value={this.state.username} placeholder="Username"/>
             </div>
+            <div className="form-group ">
+              <label htmlFor="user_email" className="form-control-label">Email Address</label>
+              <input type="email" onChange={this.onChange} className="form-control" id="email" value={this.state.email} placeholder="email@address.com"/>
+            </div>
+            <div className="form-group ">
+              <label htmlFor="user_firstname" className="form-control-label">Firstname</label>
+              <input type="text" onChange={this.onChange} className="form-control" id="firstname" value={this.state.firstname} placeholder="Firstname"/>
+            </div>
+            <div className="form-group ">
+              <label htmlFor="user_surname" className="form-control-label">Surname</label>
+              <input type="text" onChange={this.onChange} className="form-control" id="surname" value={this.state.surname} placeholder="Surname"/>
+            </div>
+            <div className="form-group ">
+              <label htmlFor="user_scope" className="form-control-label">Role</label>
+                <select className="form-control" id="scope" value={this.state.scope} onChange={this.onChange}>
+                  <option>Service Provider</option>
+                  <option>Client</option>
+                </select>
+            </div>
+            <div className="form-group ">
+              <label htmlFor="user_password" disabled={disable} className="form-control-label">Password</label>
+              <input type="password"  onChange={this.onChange} className="form-control" id="password" placeholder="Password"/>
+            </div>
+            <div className="form-group ">
+              <label htmlFor="user_password_confirmation" disabled={disable} className="form-control-label">Password Confirmation</label>
+              <input type="password"  onChange={this.onChange} className="form-control" id="password_confirmation" placeholder="Password"/>
+            </div>
+            <div className="form-group ">
+                <button type="submit"  onClick={this.onSubmit} className="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-primary">Send message</button>
           </div>
         </div>
-        <div className="form-group row">
-          <label htmlFor="user_email" className="col-sm-3 form-control-label">Email Address</label>
-          <div className="col-sm-9">
-            <input type="email" onChange={this.onChange} className="form-control" id="email" value={this.state.email} placeholder="email@address.com"/>
-          </div>
-        </div>
-        <div className="form-group row">
-          <label htmlFor="user_firstname" className="col-sm-3 form-control-label">Firstname</label>
-          <div className="col-sm-9">
-            <input type="text" onChange={this.onChange} className="form-control" id="firstname" value={this.state.firstname} placeholder="Firstname"/>
-          </div>
-        </div>
-        <div className="form-group row">
-          <label htmlFor="user_surname" className="col-sm-3 form-control-label">Surname</label>
-          <div className="col-sm-9">
-            <input type="text" onChange={this.onChange} className="form-control" id="surname" value={this.state.surname} placeholder="Surname"/>
-          </div>
-        </div>
-        <div className="form-group row">
-          <label htmlFor="user_scope" className="col-sm-3 form-control-label">Role</label>
-          <div className="col-sm-9">
-            <select className="form-control" id="scope" value={this.state.scope} onChange={this.onChange}>
-              <option>Service Provider</option>
-              <option>Client</option>
-            </select>
-          </div>
-        </div>
-        <div className="form-group row">
-          <label htmlFor="user_password" disabled={disable} className="col-sm-3 form-control-label">Password</label>
-          <div className="col-sm-9">
-            <input type="password"  onChange={this.onChange} className="form-control" id="password" placeholder="Password"/>
-          </div>
-        </div>
-        <div className="form-group row">
-          <label htmlFor="user_password_confirmation" disabled={disable} className="col-sm-3 form-control-label">Password Confirmation</label>
-          <div className="col-sm-9">
-            <input type="password"  onChange={this.onChange} className="form-control" id="password_confirmation" placeholder="Password"/>
-          </div>
-        </div>
-        <div className="form-group row">
-          <div className="col-sm-offset-3 col-sm-12 warning">
-            <button type="submit"  onClick={this.onSubmit} className="btn btn-secondary">Submit</button>
-          </div>
-        </div>
-      </form>
       </div>
+
     );
   }
 }

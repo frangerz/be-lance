@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @bank_detail.type %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @bank_detail.service %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bank_detail.description %>
+</p>
+
+<%= link_to 'Edit', edit_bank_detail_path(@bank_detail) %> |
+<%= link_to 'Back', bank_details_path %>

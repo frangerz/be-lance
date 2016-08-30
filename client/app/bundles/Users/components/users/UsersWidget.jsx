@@ -42,18 +42,17 @@ export default class UsersWidget extends React.Component {
   renderProfile() {
     const current_user = JSON.parse(JSON.stringify(this.props.current_user));
     const users = JSON.parse(JSON.stringify(this.props.users));
-    if (current_user.admin) {
-      return (this.renderAdmin(users, current_user));
-    } else {
-      return this.renderClientProfile(current_user);
-    }
+    // else if (current_user.group_admin) {
+    //   return (this.renderAdmin(users, current_user));
+    // }
+    return this.renderClientProfile(current_user);
+
   }
 
   renderClientProfile(current_user) {
     return (
       <div>
         <div className="col-xs-6">
-          How Other's See You:
           {this.renderUsers(current_user)}
         </div>
         <div className="col-xs-6">
@@ -67,7 +66,7 @@ export default class UsersWidget extends React.Component {
     return (
       <div>
         <div className="col-xs-6">
-          {this.renderUsers(users)}
+          {this.renderUsers(current_user)}
         </div>
         <div className="col-xs-6">
           {this.renderUserDetails(current_user)}
@@ -77,24 +76,22 @@ export default class UsersWidget extends React.Component {
   }
 
   renderUsers(users) {
-    console.log(users);
-    if (typeof(users.admin) != 'undefined' && !users.admin) {
-      return (
-              <div className="list-group col-xs-12" key={users.id}>
-                <User id={users.id} user={users} deleteUser={this.deleteUser}/>
-              </div>
-            );
-    } else {
-      var user_list = _.map(users, (user) => {
-          return (
-                  <div className="list-group col-xs-12" key={user.id}>
-                    <User id={user.id} user={user} deleteUser={this.deleteUser}/>
-                  </div>
-                );
-        }
-      );
-      return user_list;
-    }
+    return (
+            <div className="col-xs-12" key={users.id}>
+              <User id={users.id} user={users} deleteUser={this.deleteUser}/>
+            </div>
+          );
+    // if (typeof(users.admin) == 'undefined' && users.admin) {
+    //   var user_list = _.map(users, (user) => {
+    //       return (
+    //               <div className="list-group col-xs-12" key={user.id}>
+    //                 <User id={user.id} user={user} deleteUser={this.deleteUser}/>
+    //               </div>
+    //             );
+    //     }
+    //   );
+    //   return user_list;
+    // }
   }
 
   renderUserDetails(current_user) {

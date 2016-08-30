@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828011525) do
+ActiveRecord::Schema.define(version: 20160830085537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20160828011525) do
     t.datetime "alert_at"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "bank_details", force: :cascade do |t|
+    t.string   "type"
+    t.string   "service"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "charge_rates", force: :cascade do |t|
@@ -40,6 +48,23 @@ ActiveRecord::Schema.define(version: 20160828011525) do
     t.text     "reason"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "company_details", force: :cascade do |t|
+    t.string   "type"
+    t.string   "company_name"
+    t.string   "abn"
+    t.string   "acn"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string   "type"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -62,6 +87,15 @@ ActiveRecord::Schema.define(version: 20160828011525) do
     t.integer  "cost_per_hour"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "type"
+    t.text     "description"
+    t.integer  "cost"
+    t.integer  "quantity"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -89,6 +123,16 @@ ActiveRecord::Schema.define(version: 20160828011525) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "stockers", force: :cascade do |t|
+    t.string   "type"
+    t.string   "company_name"
+    t.string   "abn"
+    t.string   "acn"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "firstname"
     t.string   "surname"
@@ -106,6 +150,7 @@ ActiveRecord::Schema.define(version: 20160828011525) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "username"
   end
 
 end
