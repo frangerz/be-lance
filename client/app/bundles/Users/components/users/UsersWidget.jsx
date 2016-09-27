@@ -40,8 +40,8 @@ export default class UsersWidget extends React.Component {
   }
 
   renderProfile() {
-    const current_user = JSON.parse(JSON.stringify(this.props.current_user));
-    const users = JSON.parse(JSON.stringify(this.props.users));
+    const current_user = this.props.current_user;
+    const users = this.props.users;
     // else if (current_user.group_admin) {
     //   return (this.renderAdmin(users, current_user));
     // }
@@ -106,7 +106,18 @@ export default class UsersWidget extends React.Component {
     return (
       <div className="container-fluid">
         <div className="col-lg-12">
-          {this.renderProfile()}
+          <div>
+            <div className="col-xs-6">
+              <div key={this.props.current_user.id}>
+                <User id={this.props.current_user.id} user={this.props.current_user} deleteUser={this.deleteUser}/>
+              </div>
+            </div>
+            <div className="col-xs-6">
+              <div key={"form_"+this.props.current_user.id}>
+                <UserDetails id="user" current_user={this.props.current_user} submitUser={this.submitUser}/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

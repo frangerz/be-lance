@@ -16,8 +16,8 @@ const Users = (props) => {
   const { dispatch, $$usersStore } = props;
   const actions = bindActionCreators(usersActionCreators, dispatch);
   const { fetchUsers, currentUser, submitUser, deleteUser } = actions;
-  const users = $$usersStore.get('users');
-  const current_user = $$usersStore.get('current_user');
+  const users = JSON.parse(JSON.stringify($$usersStore.get('users')));
+  const current_user = JSON.parse(JSON.stringify($$usersStore.get('current_user')));
   return (
     <UsersWidget {...{fetchUsers, submitUser, deleteUser, users, current_user }} />
   );

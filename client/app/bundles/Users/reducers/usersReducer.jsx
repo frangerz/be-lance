@@ -37,7 +37,7 @@ export default function usersReducer($$state = $$initialState, action) {
       });
       usersIndex = $$state.getIn(['users']).splice(index,1)
       return $$state.set('users', usersIndex)
-      
+
     default:
       return $$state;
   }

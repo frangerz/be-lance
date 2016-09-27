@@ -35,10 +35,9 @@ export function fetchUsers(users) {
         'Content-Type': 'application/json'
       },
     })
-    .then(response => response.json())
+    .then(response => x = response.json())
     .then(json => dispatch(receiveUsers(users.users, json)))
-    .catch(err => {
-    });
+    .catch(err => {});
     return null;
   }
 }

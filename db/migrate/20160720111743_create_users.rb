@@ -9,8 +9,8 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :admin
       t.string :status
       t.string :email
-      password_hash :string
-      password_salt :string
+      t.string :password_hash
+      t.string :password_salt
 
       t.timestamps null: false
     end
