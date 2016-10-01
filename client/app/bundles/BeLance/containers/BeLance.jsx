@@ -4,17 +4,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
 import * as usersActionCreators from '../actions/UsersActionCreators';
+import * as servicesActionCreators from '../actions/ServicesActionCreators';
 
 function select(state) {
   // Which part of the Redux global state does our component want to receive as props?
   // Note the use of `$$` to prefix the property name because the value is of type Immutable.js
-  return { $$usersStore: state.$$usersStore };
+  return
+        {
+          $$usersStore: state.$$usersStore,
+          $$servicesStore: state.$$servicesStore,
+        };
 }
 
-// Simple example of a React "smart" component
-const Users = (props) => {
-  const { dispatch, $$usersStore } = props;
-  const actions = bindActionCreators(usersActionCreators, dispatch);
+const BeLance = (props) => {
+  const { dispatch, $$beLanceStore, } = props;
+  const actions = bindActionCreators(usersActionCreators, servicesActionCreators, dispatch);
   const { fetchUsers, currentUser, submitUser, deleteUser } = actions;
   const users = JSON.parse(JSON.stringify($$usersStore.get('users')));
   const current_user = JSON.parse(JSON.stringify($$usersStore.get('current_user')));
@@ -23,17 +27,13 @@ const Users = (props) => {
   );
 };
 
-Users.propTypes = {
+BeLance.propTypes = {
   dispatch: PropTypes.func.isRequired,
-
-  // This corresponds to the value used in function select above.
-  // We prefix all property and variable names pointing to Immutable.js objects with '$$'.
-  // This allows us to immediately know we don't call $$usersStore['someProperty'], but
-  // instead use the Immutable.js `get` API for Immutable.Map
   $$usersStore: PropTypes.instanceOf(Immutable.Map).isRequired,
+  $$servicesStore: PropTypes.instanceOf(Immutable.Map).isRequired,
 };
 
 // Don't forget to actually use connect!
 // Note that we don't export users, but the redux "connected" version of it.
 // See https://github.com/reactjs/react-redux/blob/master/docs/api.md#examples
-export default connect(select)(Users);
+export default connect(select)(BeLance);

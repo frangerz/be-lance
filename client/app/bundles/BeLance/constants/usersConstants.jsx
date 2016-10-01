@@ -9,4 +9,5 @@ const actionTypes = mirrorCreator([
   'SUBMIT_USER_FAILURE',
   'DELETE_USER',
 ]);
+
 export default actionTypes;

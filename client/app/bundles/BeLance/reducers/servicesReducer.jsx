@@ -1,5 +1,4 @@
 import Immutable from 'immutable';
-//potential bug
 import actionTypes from '../constants/servicesConstants';
 
 export const $$initialState = Immutable.fromJS({
@@ -69,21 +68,6 @@ export default function servicesReducer($$state = $$initialState, action) {
             newState.selectedServices.splice(i, 1)
           } else { i++ }
         }
-      }
-      return newState
-    case SERVICES_REMOVE_CHARGED:
-      newState = {...$$state, services: [...$$state.services], selectedServices: [...$$state.selectedServices]}
-      //remove charged services from state
-      for(i = 0; i < newState.services.length; ) {
-        if(action.uuids.indexOf(newState.services[i].uuid) > -1) {
-          newState.services.splice(i, 1)
-        } else { i++ }
-      }
-      //deselect any of the services if they were selected
-      for(i = 0; i < newState.selectedServices.length; ) {
-        if(action.uuids.indexOf(newState.selectedServices[i]) > -1) {
-          newState.selectedServices.splice(i, 1)
-        } else { i++ }
       }
       return newState
     default:
