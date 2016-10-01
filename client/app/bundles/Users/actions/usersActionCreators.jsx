@@ -16,8 +16,6 @@ export function requestUsers(users) {
 }
 
 export function receiveUsers(users, json) {
-  console.log(json.data.children);
-
   return {
     type: RECEIVE_USERS,
     users,
@@ -26,7 +24,7 @@ export function receiveUsers(users, json) {
 }
 
 export function fetchUsers(users) {
-  return function(dispatch){
+  return export  function(dispatch){
     dispatch(requestUsers(users))
     return fetch(`/users`, {
       method: 'GET',
@@ -35,7 +33,7 @@ export function fetchUsers(users) {
         'Content-Type': 'application/json'
       },
     })
-    .then(response => x = response.json())
+    .then(response => xresponse.json())
     .then(json => dispatch(receiveUsers(users.users, json)))
     .catch(err => {});
     return null;
@@ -50,7 +48,7 @@ export function submitUserOptimistic(user) {
 }
 
 export function submitUser(user) {
-  return function(dispatch) {
+  return export  function(dispatch) {
     dispatch(submitUserOptimistic(user));
     fetch('/users', {
       method: 'POST',
@@ -69,7 +67,7 @@ export function submitUser(user) {
 }
 
 export function deleteUser(user) {
-  return function(dispatch) {
+  return export  function(dispatch) {
     dispatch(deleteUserOptimistic(user));
     fetch('/users/'+user.id+'.json', {
       method: 'DELETE',

@@ -9,6 +9,7 @@
     <%=current_user.firstname %>'s Details'
   </h1>
 <% end %>
+
 <%= react_component("UsersApp",
                      props: {users: @users, current_user: current_user},
                      prerender: false) %>
